@@ -6,6 +6,7 @@ pandas
 matplotlib
 langchain
 langchain-openai
+langchain-experimental  
 python-dotenv
 openai
 
