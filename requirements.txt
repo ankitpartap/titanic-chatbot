@@ -1,0 +1,14 @@
+# Backend (FastAPI)
+fastapi
+uvicorn
+pydantic
+pandas
+matplotlib
+langchain
+langchain-openai
+python-dotenv
+openai
+
+# Frontend (Streamlit)
+streamlit
+requests
