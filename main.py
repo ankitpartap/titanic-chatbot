@@ -25,7 +25,11 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai_api_key:
-    raise ValueError("Missing OpenAI API Key. Set OPENAI_API_KEY in the .env file.")
+    print("⚠️ OPENAI_API_KEY is missing. Available environment variables:", os.environ)
+    raise ValueError("Missing OpenAI API Key. Set OPENAI_API_KEY in Railway Variables.")
+else:
+    print("✅ OPENAI_API_KEY Loaded Successfully!")
+
 
 # Initialize OpenAI LLM
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
