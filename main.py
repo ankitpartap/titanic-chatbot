@@ -28,7 +28,7 @@ if not openai_api_key:
     print("⚠️ OPENAI_API_KEY is missing. Available environment variables:", os.environ)
     raise ValueError("Missing OpenAI API Key. Set OPENAI_API_KEY in Railway Variables.")
 else:
-    print("✅ OPENAI_API_KEY Loaded Successfully!")
+    print("OPENAI_API_KEY Loaded Successfully!")
 
 
 # Initialize OpenAI LLM
