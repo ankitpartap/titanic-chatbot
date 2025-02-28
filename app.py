@@ -1,13 +1,11 @@
-# app.py
 import streamlit as st
 import requests
 import os
-
-# adding .env
+import base64  
 from dotenv import load_dotenv 
+
 load_dotenv()
 
-# Get the backend URL from .env
 BACKEND_URL = os.getenv("BACKEND_URL")
 
 st.title("Titanic Dataset Chatbot")
@@ -23,16 +21,17 @@ question = st.text_input("Enter your question:")
 
 if st.button("Submit") and question:
     try:
-        # response = requests.post("http://localhost:8000/ask", json={"question": question})
         response = requests.post(f"{BACKEND_URL}/ask", json={"question": question})
         response.raise_for_status()
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.error(f"❌ Error: {e}")
     else:
         data = response.json()
         st.subheader("Answer")
-        st.write(data['answer'])
+        st.write(data["answer"])
         
-        if data.get('plot'):
+        #decode and display the base64-encoded chart
+        if data.get("plot"):
             st.subheader("Visualization")
-            st.image(data['plot'], use_column_width=True)
+            image_data = base64.b64decode(data["plot"])  
+            st.image(image_data, use_column_width=True)
