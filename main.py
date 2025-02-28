@@ -20,12 +20,12 @@ try:
 except Exception as e:
     raise Exception("Dataset titanic.csv not found. Please make sure it is placed in the same directory.")
 
-# ✅ Load API Key from .env file
+# Load API Key from .env file
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai_api_key:
-    print("⚠️ OPENAI_API_KEY is missing. Available environment variables:", os.environ)
+    print("OPENAI_API_KEY is missing. Available environment variables:", os.environ)
     raise ValueError("Missing OpenAI API Key. Set OPENAI_API_KEY in Railway Variables.")
 else:
     print("OPENAI_API_KEY Loaded Successfully!")
