@@ -9,6 +9,7 @@ langchain-openai
 langchain-experimental  
 python-dotenv
 openai
+tabulate
 
 # Frontend (Streamlit)
 streamlit
